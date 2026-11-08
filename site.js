@@ -62,7 +62,7 @@ quoteForm?.addEventListener('submit', event => {
   const mailto = `mailto:houman@senserio.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   const status = document.querySelector('#form-status');
   status.hidden = false;
-  status.innerHTML = '<strong>Your email request is ready.</strong><p>Your email app should open with the project details addressed to Senserio. Review the message and press Send. The website itself does not transmit or store the request.</p><a class="btn" id="open-email-draft" href="#">Open email draft ↗</a>';
+  status.innerHTML = '<strong>Your quote request is ready.</strong><p>Choose the button below to open an email addressed to Senserio. Review the details and press Send. This static website cannot send or store submissions by itself.</p><a class="btn" id="open-email-draft" href="#">Open email draft →</a><p class="email-fallback">If the email app does not open, email <a class="text-link" href="mailto:houman@senserio.ca">houman@senserio.ca</a> directly.</p>');
   const openLink = document.querySelector('#open-email-draft');
   openLink.href = mailto;
   openLink.addEventListener('click', () => {

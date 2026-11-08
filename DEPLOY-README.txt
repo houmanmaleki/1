@@ -24,3 +24,6 @@ Before replacing the live site:
 3. Keep GitHub Pages configured for the main branch and root folder.
 4. Preserve/verify the custom domain senserio.ca in GitHub Pages settings.
 5. Test phone link, email link, every page, and quote form after deployment.
+
+
+LATEST UPDATE: Added a persistent floating Request Quote button and a red circular direct-call button to every page. The quote form validates the required fields and prepares an email draft to houman@senserio.ca. GitHub Pages is static hosting, so the visitor must press Send in their email app; automatic server-side submission requires a form service/backend.
