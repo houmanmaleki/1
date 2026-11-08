@@ -1,3 +1,2 @@
 User-agent: *
 Allow: /
-Sitemap: https://www.senserio.ca/sitemap.xml

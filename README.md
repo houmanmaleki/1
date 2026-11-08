@@ -1,27 +1,39 @@
-# Senserio Construction Welding — GitHub Pages package
+# Senserio Website — Ready-to-upload static site
 
-## Why this package is more robust
-- All HTML pages are at the archive root.
-- CSS is embedded in each HTML page, so the visual design does not depend on the `assets/styles.css` URL resolving.
-- Internal page links use relative paths, suitable for a GitHub Pages project URL.
-- No `CNAME` is included, to avoid accidentally forcing an unconfigured custom domain while testing.
-- Hero/gallery photos load from Unsplash over the internet.
+Responsive multi-page website for Senserio Welding & Metalwork.
 
-## Upload correctly
-1. Extract this ZIP.
-2. In your GitHub repository, click Add file → Upload files.
-3. Upload the CONTENTS of this extracted folder directly to the repository root (not the containing folder).
-4. Ensure index.html is at the top level next to services.html, assets/, etc.
-5. Open Settings → Pages. Choose Deploy from a branch, main, /(root), then Save.
-6. Wait for deployment and hard-refresh (Ctrl+Shift+R).
+## Pages
+- `index.html` — Home
+- `services.html` — Services overview
+- `construction-welding.html`
+- `architectural-metalwork.html`
+- `welding-fabrication.html`
+- `projects.html` — illustrative examples, not claimed completed work
+- `about.html`
+- `contact.html`
+- `request-a-quote.html`
+- `privacy.html` — starter policy requiring owner/legal review
+- `404.html`
 
-## If 404 remains
-- A project-site URL usually looks like https://USERNAME.github.io/REPOSITORY/ rather than https://USERNAME.github.io/.
-- Confirm Settings → Pages shows the published URL and correct branch/folder.
-- Configure DNS and add a custom domain later in Settings → Pages if needed.
+## Publish on GitHub Pages
+1. Create a GitHub repository.
+2. Upload the contents of this folder to the repository root (including `index.html`, `images/`, and `.nojekyll`).
+3. Open **Settings → Pages**.
+4. Choose **Deploy from a branch**, branch `main`, folder `/(root)`, and Save.
 
-## Contact
-Human Maleki · +1 778 951 4797 · human@senserio.ca · www.senserio.ca · Vancouver, BC, Canada
+## Quote form behaviour
+The quote form validates required fields and prepares a `mailto:` email draft. It does **not** send or save submissions and does not upload attachments. Connect a trusted form endpoint before claiming online submission is available.
 
-## Form limitation
-GitHub Pages is static hosting; it does not receive form submissions or uploaded files by itself. Connect the quote form to a form provider/backend before relying on automatic delivery.
+## Images and rights
+The four images in `images/` are cropped from owner-provided website screenshots for this draft. They are illustrative website imagery and should be replaced with original, high-resolution files where available. Confirm rights/permission before public launch. The hero uses the supplied TIG welding image with a dark overlay; the original high-resolution welder-at-dusk hero photograph is still needed for the exact intended hero treatment.
+
+## Before launch
+- Confirm rights to all images.
+- Add verified completed projects only, with owner-approved details.
+- Verify actual service capabilities, welding processes, qualifications, insurance, and structural-work scope.
+- Configure a form endpoint if real online submissions are required.
+- Review the privacy policy against actual data practices and applicable law.
+- Confirm DNS and production domain.
+
+## Contact details
+Houman Maleki · +1 778 951 4797 · houman@senserio.ca · Vancouver, BC, Canada.
