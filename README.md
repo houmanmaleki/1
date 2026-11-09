@@ -35,5 +35,4 @@ The four images in `images/` are cropped from owner-provided website screenshots
 - Review the privacy policy against actual data practices and applicable law.
 - Confirm DNS and production domain.
 
-## Contact details
-Houman Maleki · +1 778 951 4797 · houman@senserio.ca · Vancouver, BC, Canada.
+## Contact details · +1 778 951 4797 · houman@senserio.ca · Vancouver, BC, Canada.
