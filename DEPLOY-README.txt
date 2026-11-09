@@ -12,12 +12,16 @@ Phone link: tel:+17789514797
 Email: houman@senserio.ca
 
 QUOTE FORM BEHAVIOUR:
-This is a static GitHub Pages site. The quote form validates the required fields
-and prepares an email draft addressed to houman@senserio.ca. The visitor must
-press Send in their own email application. GitHub Pages cannot send email or
-store submissions by itself. If automatic server-side delivery is required,
-a separately configured form service or backend is necessary.
-
+The quote form on request-a-quote.html submits directly to Senserio via the
+FormSubmit service (formsubmit.co), delivering the enquiry to
+houman@senserio.ca. No account or backend is needed. The first submission
+triggers an activation email from FormSubmit to houman@senserio.ca - click
+the activation link in that email or submissions will not be delivered.
+If sending fails (no network, or the form is not activated yet), the page
+shows an email draft addressed to houman@senserio.ca plus a Copy button, so
+no enquiry is lost. quote.html redirects to request-a-quote.html; the old
+5-step form on quote.html is retired. A thank-you page (thank-you.html) is
+shown after no-JavaScript submissions.
 Before replacing the live site:
 1. Keep a backup of the current repository.
 2. Upload all files and folders from this package to repository root.
@@ -26,4 +30,4 @@ Before replacing the live site:
 5. Test phone link, email link, every page, and quote form after deployment.
 
 
-LATEST UPDATE: Added a persistent floating Request Quote button and a red circular direct-call button to every page. The quote form validates the required fields and prepares an email draft to houman@senserio.ca. GitHub Pages is static hosting, so the visitor must press Send in their email app; automatic server-side submission requires a form service/backend.
+LATEST UPDATE: Replaced the broken construction-welding.jpg (it was a screenshot of the website with text baked in) with a proper construction welding photo, and replaced the duplicated custom-fabrication.jpg with a distinct workshop photo. Fixed the quote form to submit directly via FormSubmit with an email-draft fallback. Added the missing construction-welding.html page (it previously 404'd) and redirected the retired quote.html to request-a-quote.html. Fixed the mobile header so the brand can no longer collide with the Menu button, and the floating contact buttons now lift above the footer instead of covering footer text.

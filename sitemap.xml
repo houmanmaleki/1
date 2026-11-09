@@ -2,9 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.senserio.ca/</loc></url>
   <url><loc>https://www.senserio.ca/services.html</loc></url>
+  <url><loc>https://www.senserio.ca/construction-welding.html</loc></url>
+  <url><loc>https://www.senserio.ca/architectural-metalwork.html</loc></url>
+  <url><loc>https://www.senserio.ca/welding-fabrication.html</loc></url>
   <url><loc>https://www.senserio.ca/projects.html</loc></url>
   <url><loc>https://www.senserio.ca/about.html</loc></url>
   <url><loc>https://www.senserio.ca/contact.html</loc></url>
-  <url><loc>https://www.senserio.ca/quote.html</loc></url>
+  <url><loc>https://www.senserio.ca/request-a-quote.html</loc></url>
   <url><loc>https://www.senserio.ca/privacy.html</loc></url>
 </urlset>

@@ -42,7 +42,7 @@ quoteForm?.addEventListener('submit', event => {
   const data = new FormData(quoteForm);
   const rows = [];
   for (const [key, value] of data.entries()) {
-    if (key === 'privacy' || !String(value).trim()) continue;
+    if (key.startsWith('_') || key === 'privacy' || !String(value).trim()) continue;
     const label = key.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
     rows.push(`${label}: ${String(value).trim()}`);
   }
@@ -61,13 +61,46 @@ quoteForm?.addEventListener('submit', event => {
 
   const mailto = `mailto:houman@senserio.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   const status = document.querySelector('#form-status');
+  const showFallback = () => {
+    status.hidden = false;
+    status.innerHTML = '<strong>Could not send automatically.</strong><p>Your request was not sent. Use the button below to open an email with the details filled in, or copy them and email <a class="text-link" href="mailto:houman@senserio.ca">houman@senserio.ca</a> directly.</p><p><a class="btn" id="open-email-draft" href="#">Open email draft &rarr;</a> <button class="btn outline" type="button" id="copy-details">Copy details</button></p><pre id="quote-draft" style="white-space:pre-wrap;font-size:.85rem;margin:12px 0 0"></pre>';
+    const draft = document.querySelector('#quote-draft');
+    draft.textContent = `Subject: ${subject}\n\n${body}`;
+    const openLink = document.querySelector('#open-email-draft');
+    openLink.href = mailto;
+    document.querySelector('#copy-details').addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(draft.textContent);
+        document.querySelector('#copy-details').textContent = 'Copied';
+      } catch (e) {
+        const range = document.createRange();
+        range.selectNodeContents(draft);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        document.querySelector('#copy-details').textContent = 'Selected \u2014 press Ctrl+C';
+      }
+    });
+    status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  };
+
   status.hidden = false;
-  status.innerHTML = '<strong>Your quote request is ready.</strong><p>Choose the button below to open an email addressed to Senserio. Review the details and press Send. This static website cannot send or store submissions by itself.</p><a class="btn" id="open-email-draft" href="#">Open email draft →</a><p class="email-fallback">If the email app does not open, email <a class="text-link" href="mailto:houman@senserio.ca">houman@senserio.ca</a> directly.</p>');
-  const openLink = document.querySelector('#open-email-draft');
-  openLink.href = mailto;
-  openLink.addEventListener('click', () => {
-    status.querySelector('p').textContent =
-      'If your email app did not open, check your browser email settings or copy the details and email houman@senserio.ca.';
-  }, { once: true });
-  status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  status.innerHTML = '<strong>Sending&hellip;</strong><p>Please wait while your request is sent to Senserio.</p>';
+  fetch(quoteForm.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+    .then(response => {
+      if (!response.ok) throw new Error('send failed');
+      status.innerHTML = '<strong>Request sent.</strong><p>Thank you \u2014 your quote request has been sent to Senserio. We will be in touch about the next steps.</p>';
+      quoteForm.reset();
+      status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    })
+    .catch(showFallback);
 });
+
+// Lift the floating contact buttons above the footer so they never cover footer text.
+const quickActions = document.querySelector('.quick-actions');
+const footerBottom = document.querySelector('.footer-bottom');
+if (quickActions && footerBottom && 'IntersectionObserver' in window) {
+  new IntersectionObserver(entries => {
+    quickActions.classList.toggle('lifted', entries[0].isIntersecting);
+  }).observe(footerBottom);
+}
