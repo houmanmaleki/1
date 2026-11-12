@@ -31,3 +31,5 @@ Before replacing the live site:
 
 
 LATEST UPDATE: Replaced the broken construction-welding.jpg (it was a screenshot of the website with text baked in) with a proper construction welding photo, and replaced the duplicated custom-fabrication.jpg with a distinct workshop photo. Fixed the quote form to submit directly via FormSubmit with an email-draft fallback. Added the missing construction-welding.html page (it previously 404'd) and redirected the retired quote.html to request-a-quote.html. Fixed the mobile header so the brand can no longer collide with the Menu button, and the floating contact buttons now lift above the footer instead of covering footer text.
+
+PHOTOS (Nov 11, 2026): replaced all three similar welding photos with distinct ones — hero is an aerial steel-frame photo (Wikimedia Commons, CC0, by Wikideas1); construction-welding.jpg is a steel-frame building under construction (Wikimedia Commons, CC BY 3.0, by Dwight Burdette); custom-fabrication.jpg is a generated workshop photo (worker measuring steel, no sparks). The architectural-metalwork.jpg stair-railing photo is unchanged.
